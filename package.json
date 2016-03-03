@@ -1,0 +1,37 @@
+{
+  "name": "cartridge-sass",
+  "version": "0.0.2",
+  "description": "Sass module for the cartridge project",
+  "homepage": "https://github.com/code-computerlove/cartridge-sass",
+  "bugs": {
+    "url": "https://github.com/code-computerlove/cartridge-sass/issues"
+  },
+  "license": "MIT",
+  "author": "Barney Scott <barney@codecomputerlove.co.uk>",
+  "main": "task.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-computerlove/cartridge-sass.git"
+  },
+  "scripts": {
+    "preinstall": "node scripts/preinstall.js",
+    "postinstall": "node scripts/postinstall.js",
+    "preuninstall": "node scripts/preuninstall.js"
+  },
+  "dependencies": {
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-responsive-images": "0.0.3",
+    "gulp-svgmin": "^1.2.2",
+    "imagemin-pngquant": "^4.2.2"
+  },
+  "devDependencies": {
+    "chalk": "^1.1.1",
+    "chai": "^3.5.0",
+    "del": "^2.1.0",
+    "fs-extra": "^0.24.0",
+    "mocha": "^2.4.5",
+    "proxyquire": "^1.7.4"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"image": [
+		{
+			"width":   1200,
+			"height":  350,
+			"quality": 40,
+			"suffix":  "-large",
+			"crop":    true
+		}
+	]
+}
