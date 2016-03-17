@@ -25,7 +25,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 	// Task Config
 	var taskConfig = require(path.resolve(process.cwd(), projectConfig.dirs.config, 'task.images.js'))(projectConfig);
 
-	// Add the clean path for the generated styles
+	// Add the clean path for the generated images
 	projectConfig.cleanPaths.push(projectConfig.paths.dest.images);
 
 	var imageminOptions = {
