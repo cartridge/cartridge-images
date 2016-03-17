@@ -15,11 +15,24 @@ var pngquant 		= 		require('imagemin-pngquant');
 var svgmin 			= 		require('gulp-svgmin');
 var responsive 	= 		require('gulp-responsive-images');
 
-module.exports = function(config, cartridgeSettings, creds) {
+module.exports = function(gulp, projectConfig, tasks) {
+
+	/* --------------------
+	*	CONFIGURATION
+	* ---------------------*/
+
+	// Task Config
+	var taskConfig = require(path.resolve(process.cwd(), projectConfig.dirs.config, 'task.images.js'))(projectConfig);
+
+	// Add the clean path for the generated styles
+	projectConfig.cleanPaths.push(projectConfig.paths.dest.images);
+
+	/* --------------------
+	*	MODULE TASKS
+	* ---------------------*/
 
 	// Imagemin
 
-	var images = require(config.paths.config + 'images')(config);
 	var imageminOptions = {
 		progressive: true,
 		svgoPlugins: [{removeViewBox: false}],
@@ -27,7 +40,7 @@ module.exports = function(config, cartridgeSettings, creds) {
 	};
 
 	gulp.task('imagemin', function () {
-		return gulp.src(images)
+		return gulp.src(taskConfig.images)
 			.pipe(gulpif(config.prod, imagemin(imageminOptions))) //Production only
 			.pipe(gulp.dest(config.paths.dest.images));
 	});
@@ -51,10 +64,6 @@ module.exports = function(config, cartridgeSettings, creds) {
 	});
 
 	// Image resizes
-
-	var imageSizes = require(config.paths.config + 'resp-images');
-	var responsiveImages = require(config.paths.config + 'responsive-images')(config);
-	imageSizes = getImageSizes(imageSizes);
 
 	function getRetinaVersion(sizes) {
 		var i;
@@ -94,17 +103,8 @@ module.exports = function(config, cartridgeSettings, creds) {
 
 	gulp.task('responsive-images', function () {
 
-		return gulp.src(responsiveImages)
-			.pipe(responsive(imageSizes))
+		return gulp.src(taskConfig.responsiveImages.src)
+			.pipe(responsive(getImageSizes(taskConfig.responsive.config)))
 			.pipe(gulp.dest(config.paths.dest.images));
 	});
-
-	gulp.task('watch:sass', function () {
-		gulp.watch(
-			[config.paths.src.styles + '**/*.scss', config.paths.src.components + '**/*.scss', config.paths.src.partials + '**/*.scss'],
-			['sass', 'sass:legacy:ie8']
-		);
-	});
-	cartridgeSettings.tasks.watch.push('watch:sass');
-
 }
