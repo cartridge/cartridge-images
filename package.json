@@ -1,20 +1,19 @@
 {
-  "name": "cartridge-sass",
+  "name": "cartridge-images",
   "version": "0.0.2",
-  "description": "Sass module for the cartridge project",
-  "homepage": "https://github.com/code-computerlove/cartridge-sass",
+  "description": "Image optimisation expansion pack for cartridge",
+  "homepage": "https://github.com/cartridge/cartridge-images",
   "bugs": {
-    "url": "https://github.com/code-computerlove/cartridge-sass/issues"
+    "url": "https://github.com/cartridge/cartridge-images/issues"
   },
   "license": "MIT",
-  "author": "Barney Scott <barney@codecomputerlove.co.uk>",
+  "author": "Code Computerlove <npm@codecomputerlove.co.uk>",
   "main": "task.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/code-computerlove/cartridge-sass.git"
+    "url": "https://github.com/cartridge/cartridge-images.git"
   },
   "scripts": {
-    "preinstall": "node scripts/preinstall.js",
     "postinstall": "node scripts/postinstall.js",
     "preuninstall": "node scripts/preuninstall.js"
   },
@@ -24,7 +23,8 @@
     "gulp-rename": "^1.2.2",
     "gulp-responsive-images": "0.0.3",
     "gulp-svgmin": "^1.2.2",
-    "imagemin-pngquant": "^4.2.2"
+    "imagemin-pngquant": "^4.2.2",
+    "cartridge-module-util": "/Users/tristanashley/Documents/mac.code/cartridge-module-util"
   },
   "devDependencies": {
     "chalk": "^1.1.1",
