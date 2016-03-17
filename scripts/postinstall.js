@@ -1,12 +1,14 @@
 'use strict';
 
-var cartridgeCli  = require('cartridge-cli');
+var cartridgeUtil = require('cartridge-module-util');
 var packageConfig = require('../package.json');
 var path          = require('path');
 
 var rcComplete            = false;
 var projectConfigComplete = false;
 var moduleConfigComplete  = false;
+
+cartridgeUtil.ensureCartridgeExists();
 
 function isComplete() {
 	return rcComplete && projectConfigComplete && moduleConfigComplete;
@@ -43,7 +45,7 @@ function startAddToRc() {
 
 	console.log('Adding ' + packageConfig.name + ' to .cartridgerc');
 
-	cartridgeCli.addToRc(moduleConfig, function finishAddToRc(err) {
+	cartridgeUtil.addToRc(moduleConfig, function finishAddToRc(err) {
 		taskComplete(
 			rcComplete,
 			err,
@@ -56,12 +58,20 @@ function modifyProjectConfig(config) {
 	if(!config.hasOwnProperty('paths')) {
 		config.paths = {
 			src:   {},
-			build: {}
+			dest: {}
 		};
 	}
 
-	config.paths.src.styles   = config.dirs.src  + '/styles/';
-	config.paths.build.styles = config.dirs.build + '/styles/';
+	if(!config.paths.hasOwnProperty('src')) {
+		config.paths.src = {};
+	}
+
+	if(!config.paths.hasOwnProperty('dest')) {
+		config.paths.dest = {};
+	}
+
+	config.paths.src.styles   = config.dirs.src  + '/images/';
+	config.paths.dest.styles = config.dirs.dest + '/images/';
 
 	return config;
 }
@@ -69,7 +79,7 @@ function modifyProjectConfig(config) {
 function startProjectConfig() {
 	console.log('Modifying project config for ' + packageConfig.name);
 
-	cartridgeCli.modifyProjectConfig(modifyProjectConfig, function finishProjectConfig(err) {
+	cartridgeUtil.modifyProjectConfig(modifyProjectConfig, function finishProjectConfig(err) {
 		taskComplete(
 			projectConfigComplete,
 			err,
@@ -81,7 +91,7 @@ function startProjectConfig() {
 function startModuleConfig() {
 	console.log('Copying files needed by ' + packageConfig.name + ' to _config');
 
-	cartridgeCli.addModuleConfig(path.resolve('_config'), function finishModuleconfig(err){
+	cartridgeUtil.addModuleConfig(path.resolve('_config'), function finishModuleconfig(err){
 		taskComplete(
 			moduleConfigComplete,
 			err,
