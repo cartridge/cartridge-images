@@ -70,8 +70,8 @@ function modifyProjectConfig(config) {
 		config.paths.dest = {};
 	}
 
-	config.paths.src.styles   = config.dirs.src  + '/images/';
-	config.paths.dest.styles = config.dirs.dest + '/images/';
+	config.paths.src.images   = config.dirs.src  + '/images/';
+	config.paths.dest.images = config.dirs.dest + '/images/';
 
 	return config;
 }

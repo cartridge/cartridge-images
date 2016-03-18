@@ -103,10 +103,13 @@ module.exports = function(gulp, projectConfig, tasks) {
 
 	gulp.task('responsive-images', function () {
 		return gulp.src(taskConfig.responsiveImages.src)
-			.pipe(responsive(getImageSizes(taskConfig.responsive.config)))
+			.pipe(responsive(getImageSizes(taskConfig.responsiveImages.config)))
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
+	gulp.task('images', ['imagmin', 'responsive-images', 'svgmin',]);
+
+	tasks.default.push('images');
 	tasks.default.push('imagemin');
 	tasks.default.push('svgmin');
 	tasks.default.push('responsive-images');
