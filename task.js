@@ -12,7 +12,7 @@ var rename     = require('gulp-rename');
 var imagemin 		= 		require('gulp-imagemin');
 var pngquant 		= 		require('imagemin-pngquant');
 var svgmin 			= 		require('gulp-svgmin');
-var responsive 	= 		require('gulp-responsive-images');
+var responsive 	= 		require('gulp-responsive');
 var helpers = require('./helpers');
 
 module.exports = function(gulp, projectConfig, tasks) {
@@ -32,8 +32,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 		use: [pngquant()]
 	};
 
-	var svgPlugins = [
-		{
+	var svgPlugins = [{
 			removeDimensions: true
 		}, {
 			removeTitle: true
@@ -53,7 +52,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 	});
 
 	gulp.task('svgmin', function () {
-		return gulp.src(projectConfig.paths.src.images + '**/*.svg')
+		return gulp.src(taskConfig.svgs)
 			.pipe(svgmin(svgminOptions))
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
@@ -64,7 +63,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
-	gulp.task(TASK_NAME, ['imagemin', 'responsive-images', 'svgmin']);
+	gulp.task(TASK_NAME, ['responsive-images', 'imagemin', 'svgmin']);
 
 	/* --------------------
 	*	WATCH TASKS

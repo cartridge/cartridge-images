@@ -28,7 +28,7 @@ function getRetinaVersion(sizes) {
 	return retinaSizes;
 }
 
-helpersApi.getImageSizes = fucntion(baseData) {
+helpersApi.getImageSizes = function(baseData) {
 	var i;
 	var keys = Object.keys(baseData);
 	var len  = keys.length;
