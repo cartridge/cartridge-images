@@ -8,7 +8,7 @@ function getTaskConfig(projectConfig) {
 			projectConfig.paths.src.images + '**/*.{png,jpg}'
 		],
 		svgs: [
-			projectConfig.paths.src.images + '**/*.{svg}'
+			projectConfig.paths.src.images + '**/*.svg'
 		],
 		responsiveImages: {
 			src: [
