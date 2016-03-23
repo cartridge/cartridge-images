@@ -15,6 +15,17 @@ function getTaskConfig(projectConfig) {
 				projectConfig.paths.src.images + 'responsive/**/*.{png,jpg}',
 			],
 			config: {
+				// "path/to/images": [
+				// 	{
+				// 		"width":   1020,
+				// 		"height":  1020,
+				// 		"quality": 60,
+				// 		"rename": {
+				// 			"suffix":  "-large"
+				// 		},
+				// 		"crop":    "center"
+				// 	},
+				// ],
 				"work/*": [
 					{
 						"width":   1020,
@@ -28,46 +39,6 @@ function getTaskConfig(projectConfig) {
 					{
 						"width":   1020,
 						"height":  1020,
-						"quality": 60,
-						"rename": {
-							"suffix":  "-medium"
-						},
-						"crop":    "center"
-					}
-				],
-				"service/*": [
-					{
-						"width":   1020,
-						"height":  1020,
-						"quality": 60,
-						"rename": {
-							"suffix":  "-large"
-						},
-						"crop":    "center"
-					},
-					{
-						"width":   1020,
-						"height":  1020,
-						"quality": 60,
-						"rename": {
-							"suffix":  "-medium"
-						},
-						"crop":    "center"
-					}
-				],
-				"office/*": [
-					{
-						"width":   1680,
-						"height":  1024,
-						"quality": 60,
-						"rename": {
-							"suffix":  "-large"
-						},
-						"crop":    "center"
-					},
-					{
-						"width":   960,
-						"height":  1000,
 						"quality": 60,
 						"rename": {
 							"suffix":  "-medium"
