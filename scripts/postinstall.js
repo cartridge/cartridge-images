@@ -7,12 +7,13 @@ var packageConfig = require('../package.json');
 var cartridgeUtil = require('cartridge-module-util')(packageConfig);
 var path          = require('path');
 
-var TASK_NAME = 'base';
+var TASK_NAME = 'images';
+var DIRECTORY = '/images/';
 
 // Transform function for adding paths
 function projectConfigAddPaths(config) {
-	config.paths.src[TASK_NAME]  = config.dirs.src  + '/example_dir/';
-	config.paths.dest[TASK_NAME] = config.dirs.dest + '/example_dir/';
+	config.paths.src[TASK_NAME]  = config.dirs.src  + DIRECTORY;
+	config.paths.dest[TASK_NAME] = config.dirs.dest + DIRECTORY;
 
 	return config;
 }

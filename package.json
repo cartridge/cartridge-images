@@ -1,7 +1,7 @@
 {
-	"name": "cartridge-base-module",
+	"name": "cartridge-images",
 	"version": "0.0.1",
-	"description": "Base module for the cartridge project",
+	"description": "Image optimisation expansion pack for cartridge",
 	"keywords": [
 		"gulp",
 		"dependency",
@@ -9,22 +9,36 @@
 		"cartridge-module",
 		"cartridge-task"
 	],
-	"homepage": "https://github.com/cartridge/cartridge-base-module",
+	"homepage": "https://github.com/cartridge/cartridge-images",
 	"bugs": {
-		"url": "https://github.com/cartridge/cartridge-base-module/issues"
+		"url": "https://github.com/cartridge/cartridge-images/issues"
 	},
 	"license": "MIT",
 	"author": "Code Computerlove <npm@codecomputerlove.co.uk>",
 	"main": "task.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cartridge/cartridge-base-module.git"
+		"url": "https://github.com/cartridge/cartridge-images.git"
 	},
 	"scripts": {
 		"postinstall": "node scripts/postinstall.js",
 		"preuninstall": "node scripts/preuninstall.js"
 	},
-	"dependencies": {
-		"cartridge-module-util": "~0.1.1"
-	}
+  	"dependencies": {
+	    "gulp-if": "^2.0.0",
+	    "gulp-imagemin": "^2.4.0",
+	    "gulp-rename": "^1.2.2",
+	    "gulp-responsive-images": "0.0.3",
+	    "gulp-svgmin": "^1.2.2",
+	    "imagemin-pngquant": "^4.2.2",
+	    "cartridge-module-util": "~0.1.1"
+  	},
+  	"devDependencies": {
+	    "chalk": "^1.1.1",
+	    "chai": "^3.5.0",
+	    "del": "^2.1.0",
+	    "fs-extra": "^0.24.0",
+	    "mocha": "^2.4.5",
+	    "proxyquire": "^1.7.4"
+  	}
 }

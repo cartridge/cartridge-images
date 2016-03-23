@@ -1,13 +1,19 @@
 'use strict';
 /* ============================================================ *\
-	 MODULE NAME
+	 IMAGES
 \* ============================================================ */
 
 // Gulp dependencies
 var path = require('path');
+var gulpif     = require('gulp-if')
+var rename     = require('gulp-rename');
 
 // Module dependencies
-
+var imagemin 		= 		require('gulp-imagemin');
+var pngquant 		= 		require('imagemin-pngquant');
+var svgmin 			= 		require('gulp-svgmin');
+var responsive 	= 		require('gulp-responsive-images');
+var helpers = require('./helpers');
 
 module.exports = function(gulp, projectConfig, tasks) {
 
@@ -15,21 +21,50 @@ module.exports = function(gulp, projectConfig, tasks) {
 	*	CONFIGURATION
 	* ---------------------*/
 
-	var TASK_NAME = 'base';
+	var TASK_NAME = 'images';
 
 	// Task Config
 	var taskConfig = require(path.resolve(process.cwd(), projectConfig.dirs.config, 'task.' + TASK_NAME + '.js'))(projectConfig);
+
+	var imageminOptions = {
+		progressive: true,
+		svgoPlugins: [{removeViewBox: false}],
+		use: [pngquant()]
+	};
+
+	var svgPlugins = [
+		{
+			removeDimensions: true
+		}, {
+			removeTitle: true
+		}
+	];
+
+	var svgminOptions = {};
 
 	/* --------------------
 	*	MODULE TASKS
 	* ---------------------*/
 
-	gulp.task(TASK_NAME, function () {
-		return gulp.src(taskConfig.src)
-			// Do task stuff here
-			.pipe()
-			.pipe(gulp.dest(projectConfig.paths.dest[TASK_NAME]));
+	gulp.task('imagemin', function () {
+		return gulp.src(taskConfig.images)
+			.pipe(gulpif(projectConfig.prod, imagemin(imageminOptions))) //Production only
+			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
+
+	gulp.task('svgmin', function () {
+		return gulp.src(projectConfig.paths.src.images + '**/*.svg')
+			.pipe(svgmin(svgminOptions))
+			.pipe(gulp.dest(projectConfig.paths.dest.images));
+	});
+
+	gulp.task('responsive-images', function () {
+		return gulp.src(taskConfig.responsiveImages.src)
+			.pipe(responsive(helpers.getImageSizes(taskConfig.responsiveImages.config)))
+			.pipe(gulp.dest(projectConfig.paths.dest.images));
+	});
+
+	gulp.task(TASK_NAME, ['imagemin', 'responsive-images', 'svgmin']);
 
 	/* --------------------
 	*	WATCH TASKS
