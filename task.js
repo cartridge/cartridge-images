@@ -1,4 +1,5 @@
 'use strict';
+
 /* ============================================================ *\
 	 IMAGES
 \* ============================================================ */
@@ -22,6 +23,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 	* ---------------------*/
 
 	var TASK_NAME = 'images';
+	var WATCH_TASK_NAME = 'watch:' + TASK_NAME
 
 	// Task Config
 	var taskConfig = require(path.resolve(process.cwd(), projectConfig.dirs.config, 'task.' + TASK_NAME + '.js'))(projectConfig);
@@ -58,6 +60,10 @@ module.exports = function(gulp, projectConfig, tasks) {
 	});
 
 	gulp.task('responsive-images', function () {
+		if(!Object.keys(taskConfig.responsiveImages.config).length) {
+			return Promise.resolve();
+		}
+
 		return gulp.src(taskConfig.responsiveImages.src)
 			.pipe(responsive(helpers.getImageSizes(taskConfig.responsiveImages.config)))
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
@@ -69,7 +75,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 	*	WATCH TASKS
 	* ---------------------*/
 
-	gulp.task('watch:' + TASK_NAME, function () {
+	gulp.task(WATCH_TASK_NAME, function () {
 		gulp.watch(
 			taskConfig.watch,
 			[TASK_NAME]
@@ -80,10 +86,10 @@ module.exports = function(gulp, projectConfig, tasks) {
 	*	CARTRIDGE TASK MANAGEMENT
 	* -----------------------------*/
 
-	// Add the clean path for the generated styles
+	// Add the clean path for the generated images
 	projectConfig.cleanPaths.push(projectConfig.paths.dest[TASK_NAME]);
 	// Add the task to the default list
 	tasks.default.push(TASK_NAME);
 	// Add the task to the watch list
-	tasks.watch.push('watch:' + TASK_NAME);
+	tasks.watch.push(WATCH_TASK_NAME);
 }

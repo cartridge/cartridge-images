@@ -5,7 +5,8 @@
 function getTaskConfig(projectConfig) {
 	var taskConfig = {
 		images: [
-			projectConfig.paths.src.images + '**/*.{png,jpg}'
+			projectConfig.paths.src.images + '**/*.{png,jpg}',
+			'!' + projectConfig.paths.src.images + 'responsive/**/*.{png,jpg}'
 		],
 		svgs: [
 			projectConfig.paths.src.images + '**/*.svg'
@@ -15,6 +16,9 @@ function getTaskConfig(projectConfig) {
 				projectConfig.paths.src.images + 'responsive/**/*.{png,jpg}',
 			],
 			config: {
+				//
+				//https://github.com/mahnunchik/gulp-responsive
+				//
 				// "path/to/images": [
 				// 	{
 				// 		"width":   1020,
@@ -25,27 +29,7 @@ function getTaskConfig(projectConfig) {
 				// 		},
 				// 		"crop":    "center"
 				// 	},
-				// ],
-				"work/*": [
-					{
-						"width":   1020,
-						"height":  1020,
-						"quality": 60,
-						"rename": {
-							"suffix":  "-large"
-						},
-						"crop":    "center"
-					},
-					{
-						"width":   1020,
-						"height":  1020,
-						"quality": 60,
-						"rename": {
-							"suffix":  "-medium"
-						},
-						"crop":    "center"
-					}
-				]
+				// ]
 			}
 		}
 	};
