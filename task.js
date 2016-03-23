@@ -63,7 +63,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
-	gulp.task(TASK_NAME, ['responsive-images', 'imagemin', 'svgmin']);
+	gulp.task(TASK_NAME, ['imagemin', 'responsive-images', 'svgmin']);
 
 	/* --------------------
 	*	WATCH TASKS
