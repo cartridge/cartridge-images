@@ -49,7 +49,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 
 	gulp.task('imagemin', function () {
 		return gulp.src(taskConfig.images)
-			.pipe(gulpif(projectConfig.prod, imagemin(imageminOptions))) //Production only
+			.pipe(gulpif(projectConfig.isProd, imagemin(imageminOptions))) //Production only
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
