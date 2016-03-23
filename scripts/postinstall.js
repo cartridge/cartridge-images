@@ -8,12 +8,11 @@ var cartridgeUtil = require('cartridge-module-util')(packageConfig);
 var path          = require('path');
 
 var TASK_NAME = 'images';
-var DIRECTORY = '/images/';
 
 // Transform function for adding paths
 function projectConfigAddPaths(config) {
-	config.paths.src[TASK_NAME]  = config.dirs.src  + DIRECTORY;
-	config.paths.dest[TASK_NAME] = config.dirs.dest + DIRECTORY;
+	config.paths.src[TASK_NAME]  = config.dirs.src  + '/images/';
+	config.paths.dest[TASK_NAME] = config.dirs.dest + '/images/';
 
 	return config;
 }
