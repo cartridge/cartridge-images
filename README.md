@@ -16,6 +16,6 @@ This module add the following things to a project:
 
 ##Config
 
-Once installed, the config file `task.images.js` is stored in the `_config` directory in the root of your cartridge project. Config for images, svgs and responsive images can be set individually.
+Once installed, the config file `task.images.js` is created and stored in the `_config` directory in the root of your cartridge project. Config for images, svgs and responsive images can be set individually.
 
-Examples of setup for responsive images can be found in the [gulp-responsive](https://github.com/mahnunchik/gulp-responsive) repo.
+Examples setup for responsive images can be found in the [gulp-responsive](https://github.com/mahnunchik/gulp-responsive) repo. `responsiveImages.config` from the config file is passed to the gulp-responsive task.
