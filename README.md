@@ -8,7 +8,7 @@ To use this module, you will need [cartridge-cli](https://github.com/cartridge/c
 npm install cartridge-images --save-dev
 ```
 
-This module add the following things to a project:
+This module adds the following to a project:
 
 * Image Optimisation using [gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)
 * SVG Optimisation using [gulp-svgmin](https://github.com/ben-eb/gulp-svgmin)
