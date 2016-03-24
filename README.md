@@ -2,9 +2,7 @@
 
 > Image optimisation expansion pack for cartridge
 
-To use this module, you will need [cartridge-cli](https://github.com/cartridge/cartridge-cli) installed.
-
-You will need to make sure you have a cartridge project setup before you install any modules.
+To use this module, you will need [cartridge-cli](https://github.com/cartridge/cartridge-cli) installed and have a cartridge project setup.
 
 ```shell
 npm install cartridge-images --save-dev
