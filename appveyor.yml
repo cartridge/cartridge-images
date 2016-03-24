@@ -1,0 +1,19 @@
+environment:
+  matrix:
+  - nodejs_version: "5"
+  - nodejs_version: "0.12"
+
+install:
+  #NodeJS setup
+  - ps: Install-Product node $env:nodejs_version
+  - npm -g install npm@2
+  - set PATH=%APPDATA%\npm;%PATH%
+  # Output useful info for debugging.
+  - cmd: node --version
+  - cmd: npm --version
+  - cmd: npm install --ignore-scripts
+cache:
+  - node_modules
+
+# Don't actually build.
+build: off
