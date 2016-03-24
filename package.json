@@ -22,7 +22,8 @@
 	},
 	"scripts": {
 		"postinstall": "node scripts/postinstall.js",
-		"preuninstall": "node scripts/preuninstall.js"
+		"preuninstall": "node scripts/preuninstall.js",
+		"test": "echo \"Error: no test specified\" && exit 0"
 	},
   	"dependencies": {
 	    "gulp-if": "^2.0.0",
@@ -31,7 +32,7 @@
 	    "gulp-responsive": "^2.1.0",
 	    "gulp-svgmin": "^1.2.2",
 	    "imagemin-pngquant": "^4.2.2",
-	    "cartridge-module-util": "~0.1.1"
+	    "cartridge-module-util": "/Users/tristanashley/Documents/mac.code/cartridge-module-util"
   	},
   	"devDependencies": {
 	    "chalk": "^1.1.1",
