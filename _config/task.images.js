@@ -31,7 +31,11 @@ function getTaskConfig(projectConfig) {
 				// 	},
 				// ]
 			}
-		}
+		},
+		watch: [
+			projectConfig.paths.src.images + '**/*.{png,jpg}',
+			projectConfig.paths.src.images + '**/*.svg'
+		]
 	};
 
 	return taskConfig;
