@@ -4,7 +4,8 @@ node_js:
     - stable
     - '0.12'
 install:
-    - npm install --ignore-scripts
+    - export NODE_ENV=development
+    - npm install
 cache:
   directories:
     - node_modules
