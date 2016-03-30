@@ -17,6 +17,8 @@ function projectConfigAddPaths(config) {
 	return config;
 }
 
+// Exit if NODE_ENV is development
+cartridgeUtil.exitIfDevEnvironment();
 // Make sure that the .cartridgerc file exists
 cartridgeUtil.ensureCartridgeExists();
 // Run through the project setup
