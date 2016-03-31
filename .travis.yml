@@ -6,8 +6,18 @@ node_js:
 install:
     - export NODE_ENV=development
     - npm install
+    - cp package.json test/mock-project/package.json
+    - cd test/mock-project
+    - npm install
+    - npm install gulp
+    - cd ../..
+    - npm install mocha -g
+    - npm install gulp-cli -g
+script:
+    - mocha
 cache:
   directories:
     - node_modules
+    - test/mock-project/node_modules
 git:
   depth: 1
