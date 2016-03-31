@@ -1,7 +1,6 @@
 sudo: false
 language: node_js
 node_js:
-    - stable
     - '0.12'
 install:
     - export NODE_ENV=development
@@ -16,9 +15,9 @@ install:
 script:
     # - mocha
     - gulp images
-# cache:
-#   directories:
-#     - node_modules
-#     - test/mock-project/node_modules
+cache:
+  directories:
+    - node_modules
+    - test/mock-project/node_modules
 git:
   depth: 1
