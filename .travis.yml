@@ -9,15 +9,10 @@ install:
     - cd test/mock-project
     - npm install
     - npm install gulp
-    # - cd ../..
+    - cd ../..
     - npm install mocha -g
     - npm install gulp-cli -g
 script:
-    # - mocha
-    - gulp images
-cache:
-  directories:
-    - node_modules
-    - test/mock-project/node_modules
+    - mocha
 git:
   depth: 1
