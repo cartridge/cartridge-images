@@ -10,11 +10,12 @@ install:
     - cd test/mock-project
     - npm install
     - npm install gulp
-    - cd ../..
+    # - cd ../..
     - npm install mocha -g
     - npm install gulp-cli -g
 script:
-    - mocha
+    # - mocha
+    - gulp images
 cache:
   directories:
     - node_modules

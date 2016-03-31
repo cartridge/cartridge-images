@@ -26,10 +26,6 @@ function runGulpTask(options, callback) {
 
     var gulp = spawn('gulp', options)
 
-    gulp.stdout.on('data', function(data) {
-    	console.log(new Buffer(data).toString('utf8'));
-    })
-
     gulp.on('close', function() {
         callback();
     });
