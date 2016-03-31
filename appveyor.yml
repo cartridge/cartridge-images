@@ -11,7 +11,8 @@ install:
   # Output useful info for debugging.
   - cmd: node --version
   - cmd: npm --version
-  - cmd: npm install --ignore-scripts
+  - cmd: set NODE_ENV=development
+  - cmd: npm install
 cache:
   - node_modules
 
