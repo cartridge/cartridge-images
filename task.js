@@ -47,19 +47,19 @@ module.exports = function(gulp, projectConfig, tasks) {
 	*	MODULE TASKS
 	* ---------------------*/
 
-	gulp.task('imagemin', function () {
+	gulp.task(TASK_NAME + ':minify', function () {
 		return gulp.src(taskConfig.images)
 			.pipe(gulpif(projectConfig.isProd, imagemin(imageminOptions))) //Production only
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
-	gulp.task('svgmin', function () {
+	gulp.task(TASK_NAME + ':svgmin', function () {
 		return gulp.src(taskConfig.svgs)
 			.pipe(svgmin(svgminOptions))
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
-	gulp.task('responsive-images', function () {
+	gulp.task(TASK_NAME + ':responsive', function () {
 		if(!Object.keys(taskConfig.responsiveImages.config).length) {
 			return Promise.resolve();
 		}
@@ -69,7 +69,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
-	gulp.task(TASK_NAME, ['imagemin', 'responsive-images', 'svgmin']);
+	gulp.task(TASK_NAME, [TASK_NAME + ':minify', TASK_NAME + ':responsive', TASK_NAME + ':svgmin']);
 
 	/* --------------------
 	*	WATCH TASKS
