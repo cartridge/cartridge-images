@@ -25,6 +25,6 @@ Examples setup for responsive images can be found in the [gulp-responsive](https
 This module provides the following gulp tasks
 
 * `gulp images` - Task that runs all of the tasks mentioned below.
-* `gulp imagemin` - Bitmap image minification. This minifies any .png / .jpg files in the images directory. Images are only optmised if the `--prod` flag is provided otherwise this task is ignored.
-* `gulp svgmin` - Vector image minification. This minifies all .svg files in the `svgs` folder in the images directory.
-* `gulp responsive-images` - Generates images of various sizes using the `responsiveImages.config` array.
+* `gulp images:minify`` - Bitmap image minification. This minifies any .png / .jpg files in the images directory. Images are only optmised if the `--prod` flag is provided otherwise this task is ignored.
+* `gulp images:svgmin` - Vector image minification. This minifies all .svg files in the `svgs` folder in the images directory.
+* `gulp images:responsive` - Generates images of various sizes using the `responsiveImages.config` array.
