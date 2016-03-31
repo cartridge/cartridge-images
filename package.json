@@ -1,6 +1,6 @@
 {
   "name": "cartridge-images",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Image optimisation expansion pack for cartridge",
   "keywords": [
     "gulp",
