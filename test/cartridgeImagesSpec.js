@@ -9,19 +9,17 @@ chai.should();
 
 var ROOT_DIR = process.cwd();
 var MOCK_PROJECT_DIR = path.join(process.cwd(), 'test', 'mock-project');
-var STYLE_SRC_DIR = path.join(MOCK_PROJECT_DIR, '_source', 'scripts');
-var STYLE_DEST_DIR = path.join(MOCK_PROJECT_DIR, 'public', '_client', 'scripts');
+var IMAGES_SRC_DIR = path.join(MOCK_PROJECT_DIR, '_source', 'images');
+var IMAGES_DEST_DIR = path.join(MOCK_PROJECT_DIR, 'public', '_client', 'images');
 
-var MAIN_JS_FILEPATH = path.join(STYLE_DEST_DIR, 'bundle.js');
-var MAIN_JS_SOURCEMAP_FILEPATH = path.join(STYLE_DEST_DIR, 'bundle.js.map');
-var JS_DOCS_PATH = path.join(MOCK_PROJECT_DIR, 'docs');
+var SVG_DEST_DIR = path.join(IMAGES_DEST_DIR, 'svgs');
+var MINIFY_DEST_DIR = path.join(IMAGES_DEST_DIR, 'minify');
+var RESPONSIVE_DEST_DIR = path.join(IMAGES_DEST_DIR, 'responsive');
 
 process.chdir(MOCK_PROJECT_DIR);
 
 function cleanUp() {
-	fs.remove(MAIN_JS_FILEPATH);
-	fs.remove(MAIN_JS_SOURCEMAP_FILEPATH);
-	fs.remove(JS_DOCS_PATH);
+	fs.removeSync(IMAGES_DEST_DIR);
 }
 
 function runGulpTask(options, callback) {
@@ -34,54 +32,54 @@ function runGulpTask(options, callback) {
 
 }
 
-describe('As a user of the cartridge-javascript module', function() {
+describe('As a user of the cartridge-images module', function() {
 
 	this.timeout(10000);
 
-	describe('when `gulp scripts` is run WITHOUT production flag', function() {
+	describe('when `gulp images` is run WITHOUT production flag', function() {
 
 		before(function(done) {
-			runGulpTask(['scripts'], done)
+			runGulpTask(['images'], done)
 		})
 
 		after(function() {
 			cleanUp();
 		})
 
-		it('should add the bundle.js file to the public scripts folder', function() {
-			expect(MAIN_JS_FILEPATH).to.be.a.file();
+		it('should place images in the public images folder', function() {
+			expect(IMAGES_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
-		it('should add the bundle.js.map sourcemap file to the public styles folder', function() {
-			expect(MAIN_JS_SOURCEMAP_FILEPATH).to.be.a.path();
+		it('should place minified svgs in the public images folder', function() {
+			expect(SVG_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
-		it('should generate the docs folder in the root of the project', function() {
-			expect(JS_DOCS_PATH).to.be.a.path();
+		it('should place generated responsive images in the public images folder', function() {
+			expect(RESPONSIVE_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
 	})
 
-	describe('when `gulp scripts` is run WITH production flag', function() {
+	describe('when `gulp images` is run WITH production flag', function() {
 
 		before(function(done) {
-			runGulpTask(['scripts', '--prod'], done)
+			runGulpTask(['images', '--prod'], done)
 		})
 
 		after(function() {
 			cleanUp();
 		})
 
-		it('should add the bundle.js file to the public scripts folder', function() {
-			expect(MAIN_JS_FILEPATH).to.be.a.file();
+		it('should place images in the public images folder', function() {
+			expect(IMAGES_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
-		it('should not add the bundle.js.map sourcemap file to the public styles folder', function() {
-			expect(MAIN_JS_SOURCEMAP_FILEPATH).to.not.be.a.path();
+		it('should place minified svgs in the public images folder', function() {
+			expect(SVG_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
-		it('should not generate the docs folder in the root of the project', function() {
-			expect(JS_DOCS_PATH).to.not.be.a.path();
+		it('should place generated responsive images in the public images folder', function() {
+			expect(RESPONSIVE_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
 	})

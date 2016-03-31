@@ -16,10 +16,10 @@ function getTaskConfig(projectConfig) {
 				projectConfig.paths.src.images + 'responsive/**/*.{png,jpg}',
 			],
 			config: {
-				"*": [
+				"responsive/*": [
 					{
-						"width":   1020,
-						"height":  1020,
+						"width":   800,
+						"height":  800,
 						"quality": 60,
 						"rename": {
 							"suffix":  "-large"

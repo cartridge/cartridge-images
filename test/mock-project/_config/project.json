@@ -7,10 +7,10 @@
   },
   "paths": {
     "src": {
-      "scripts": "_source/scripts/"
+      "images": "_source/images/"
     },
     "dest": {
-      "scripts": "public/_client/scripts/"
+      "images": "public/_client/images/"
     }
   }
 }

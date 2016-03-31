@@ -32,14 +32,13 @@
     "gulp-responsive": "^2.1.0",
     "gulp-svgmin": "^1.2.2",
     "imagemin-pngquant": "^4.2.2",
-    "cartridge-module-util": "~0.2.1"
+    "cartridge-module-util": "~0.2.1",
+    "yargs": "^4.3.2"
   },
   "devDependencies": {
-    "chalk": "^1.1.1",
-    "chai": "^3.5.0",
-    "del": "^2.1.0",
-    "fs-extra": "^0.24.0",
-    "mocha": "^2.4.5",
-    "proxyquire": "^1.7.4"
+    "chai": "1.10.0",
+    "chai-fs": "^0.1.0",
+    "fs-extra": "^0.26.7",
+    "mocha": "^2.4.5"
   }
 }
