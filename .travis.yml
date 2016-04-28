@@ -2,8 +2,9 @@ sudo: false
 language: node_js
 node_js:
     - '0.12'
+env:
+    - NODE_ENV=development
 install:
-    - export NODE_ENV=development
     - npm install
     - cp package.json test/mock-project/package.json
     - cd test/mock-project
