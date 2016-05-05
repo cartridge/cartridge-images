@@ -29,7 +29,7 @@ This module provides the following gulp tasks
 * `gulp images:svgmin` - Vector image minification. This minifies all .svg files in the `svgs` folder in the images directory.
 * `gulp images:responsive` - Generates images of various sizes using the `responsiveImages.config` array.
 
-* * * 
+* * *
 
 ## Development
 ### Commit message standards [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
