@@ -14,6 +14,12 @@ This module adds the following to a project:
 * SVG Optimisation using [gulp-svgmin](https://github.com/ben-eb/gulp-svgmin)
 * Responsive Images using [gulp-responsive](https://github.com/mahnunchik/gulp-responsive)
 
+## Maintainers
+
+| Name          | Github Profile                  |
+| ------------- |---------------------------------|
+| Tristan Ashley  | [tawashley](https://github.com/tawashley) |
+
 ## Config
 
 Once installed, the config file `task.images.js` is created and stored in the `_config` directory in the root of your cartridge project. Config for images, svgs and responsive images can be set individually.
