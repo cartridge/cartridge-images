@@ -18,5 +18,5 @@ test_script:
 build: off
 matrix:
   fast_finish: true
-# cache:
-#   - node_modules -> package.json
+cache:
+  - node_modules -> package.json
