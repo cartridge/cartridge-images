@@ -5,8 +5,7 @@
 function getTaskConfig(projectConfig) {
 	var taskConfig = {
 		images: [
-			projectConfig.paths.src.images + '**/*.{png,jpg}',
-			'!' + projectConfig.paths.src.images + 'responsive/**/*.{png,jpg}'
+			projectConfig.paths.src.images + '**/*.{png,jpg}'
 		],
 		svgs: [
 			projectConfig.paths.src.images + '**/*.svg'
