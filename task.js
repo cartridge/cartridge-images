@@ -13,7 +13,6 @@ var rename     = require('gulp-rename');
 var imagemin 		= 		require('gulp-imagemin');
 var pngquant 		= 		require('imagemin-pngquant');
 var svgmin 			= 		require('gulp-svgmin');
-var responsive 	= 		require('gulp-responsive');
 var helpers = require('./helpers');
 
 module.exports = function(gulp, projectConfig, tasks) {
@@ -59,17 +58,7 @@ module.exports = function(gulp, projectConfig, tasks) {
 			.pipe(gulp.dest(projectConfig.paths.dest.images));
 	});
 
-	gulp.task(TASK_NAME + ':responsive', function () {
-		if(!Object.keys(taskConfig.responsiveImages.config).length) {
-			return Promise.resolve();
-		}
-
-		return gulp.src(taskConfig.responsiveImages.src)
-			.pipe(responsive(helpers.getImageSizes(taskConfig.responsiveImages.config)))
-			.pipe(gulp.dest(projectConfig.paths.dest.images));
-	});
-
-	gulp.task(TASK_NAME, [TASK_NAME + ':minify', TASK_NAME + ':responsive', TASK_NAME + ':svgmin']);
+	gulp.task(TASK_NAME, [TASK_NAME + ':minify', TASK_NAME + ':svgmin']);
 
 	/* --------------------
 	*	WATCH TASKS
