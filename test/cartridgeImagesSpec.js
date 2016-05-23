@@ -14,7 +14,6 @@ var IMAGES_DEST_DIR = path.join(MOCK_PROJECT_DIR, 'public', '_client', 'images')
 
 var SVG_DEST_DIR = path.join(IMAGES_DEST_DIR, 'svgs');
 var MINIFY_DEST_DIR = path.join(IMAGES_DEST_DIR, 'minify');
-var RESPONSIVE_DEST_DIR = path.join(IMAGES_DEST_DIR, 'responsive');
 
 process.chdir(MOCK_PROJECT_DIR);
 
@@ -54,10 +53,6 @@ describe('As a user of the cartridge-images module', function() {
 			expect(SVG_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
-		it('should place generated responsive images in the public images folder', function() {
-			expect(RESPONSIVE_DEST_DIR).to.be.a.directory().and.not.empty;
-		})
-
 	})
 
 	describe('when `gulp images` is run WITH production flag', function() {
@@ -76,10 +71,6 @@ describe('As a user of the cartridge-images module', function() {
 
 		it('should place minified svgs in the public images folder', function() {
 			expect(SVG_DEST_DIR).to.be.a.directory().and.not.empty;
-		})
-
-		it('should place generated responsive images in the public images folder', function() {
-			expect(RESPONSIVE_DEST_DIR).to.be.a.directory().and.not.empty;
 		})
 
 	})
