@@ -13,7 +13,6 @@ var rename     = require('gulp-rename');
 var imagemin 		= 		require('gulp-imagemin');
 var pngquant 		= 		require('imagemin-pngquant');
 var svgmin 			= 		require('gulp-svgmin');
-var helpers = require('./helpers');
 
 module.exports = function(gulp, projectConfig, tasks) {
 
