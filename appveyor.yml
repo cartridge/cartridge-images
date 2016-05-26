@@ -9,12 +9,9 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version x64
   - npm install
-# Post-install test scripts.
 test_script:
-  # Output useful info for debugging.
   - node --version
   - npm --version
-# Don't actually build.
 build: off
 matrix:
   fast_finish: true
