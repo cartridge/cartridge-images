@@ -1,6 +1,6 @@
 {
   "name": "cartridge-images",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Image optimisation expansion pack for cartridge",
   "keywords": [
     "gulp",
@@ -23,7 +23,11 @@
   "scripts": {
     "postinstall": "node scripts/postinstall.js",
     "preuninstall": "node scripts/preuninstall.js",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "release": {
+    "branch": "master"
   },
   "dependencies": {
     "cartridge-module-util": "~0.5.1",
@@ -41,7 +45,8 @@
     "fs-extra": "^0.26.7",
     "ghooks": "^1.2.1",
     "mocha": "^2.4.5",
-    "validate-commit-msg": "^2.6.0"
+    "validate-commit-msg": "^2.6.0",
+    "semantic-release": "^8.2.0"
   },
   "config": {
     "commitizen": {
